@@ -54,7 +54,7 @@ ts_periodLS.meta["TEFF"] = teff
 # the other with a dimensional_id: dim_id (this act like a flag ?!?!?!?)
 # this implementation works smoothly, however it does not work with any prediction model because 
 # it seems that is necessary a pandas.core.series.Series instead of a pandas.core.frame.DataFrame
-# question raised in the 
+# question raised in the sktime forum
 import sktime as sk
 from sktime.utils.data_processing import from_long_to_nested
 # get the length of flusso and create the other two lists
