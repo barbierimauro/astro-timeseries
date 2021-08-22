@@ -33,7 +33,7 @@ ts_flusso = TimeSeries(flusso, dt=temporal_cadence)
 ts_flusso = TimeSeries(flusso, times=tempo)
 
 #lightkurve
-# this package is more complicated
+# this package is more .complicated.
 # you need to have an additional list that contains the errors on the observations (flusso_errore) 
 # and for the asteroseismology part is needed a variable that contains the effective temperature of the star (temperatura)
 import lightkurve
@@ -47,4 +47,24 @@ potenza   = (original_power / frequenza)
 ts_periodLS = lightkurve.periodogram.Periodogram(frequenza,potenza)
 ts_periodLS.meta["TEFF"] = teff
 
-#
+#sktime
+# import data in nested data frame
+# need to define two additional lists
+# one with the index: case_id
+# the other with a dimensional_id: dim_id (this act like a flag ?!?!?!?)
+# this implementation works smoothly, however it does not work with any prediction model because 
+# it seems that is necessary a pandas.core.series.Series instead of a pandas.core.frame.DataFrame
+# question raised in the 
+import sktime as sk
+from sktime.utils.data_processing import from_long_to_nested
+# get the length of flusso and create the other two lists
+NP=length(flusso)
+caso_id=np.arange(NP)
+dimensione_id=np.zeros(NP)
+# create the data frame in the so called long format (by sktime documentation)
+lc = pd.DataFrame(np.column_stack([caso_id,dimensione_id,tempo,flusso]),columns=['case_id','dim_id','time','value'])
+# convert the data frame in a nested one
+lc_nested = from_long_to_nested(lc,instance_column_name='case_id',dimension_column_name='dim_id',time_column_name='time',value_column_name='value')
+print('lc_nested data type:',type(lc_nested))
+
+
