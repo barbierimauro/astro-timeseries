@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-# somewhere you have imported your data in forms of lists
-# in these examples the one called `tempo` contains the time, the other contains the values of the data and is called `flusso`
-# I am using italian words for time (tempo) and flux (flusso), for avoiding confusion with some keyword of the various call used
-# the objet that will be created is named `ts_flusso`
+# Somewhere you have imported your data in forms of lists
+# In these examples the one called `tempo` contains the time, the other contains the values of the data and is called `flusso`
+# I am using the words for time (tempo) and flux (flusso), for avoiding confusion with some keyword of the various call used.
+# The objet that will be created is named `ts_flusso`.
 #
-# the following examples provide the mimimum needed for working with these packages, obviously for having a more finer control
-# you need to read the appropriate documentation of each package
+# The following examples provide the mimimum needed for working with these packages, obviously for having a more finer control
+# you need to read the appropriate documentation of each package.
 
 #Pandas
 import pandas as pd
